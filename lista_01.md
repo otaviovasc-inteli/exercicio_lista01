@@ -237,8 +237,6 @@ somador.adicionarNota(9)
 somador.adicionarNota(2)
 somador.verTotal()
 ```
-
-
 ______
 
 **10)** Imagine que você está criando um programa em JavaScript para uma escola. Neste programa, existem diferentes tipos de funcionários, cada um com suas próprias características. Considere as seguintes classes:
@@ -260,51 +258,43 @@ Agora, sua tarefa é escrever um código em JavaScript que crie as classes Funci
 
 Certifique-se de explicar cada parte do código utilizando comentários, explicando para que serve cada atributo e método, bem como a lógica por trás do cálculo de salário para o tipo de funcionário Professor.
 ```javascript
-// **10)** Imagine que você está criando um programa em JavaScript para uma escola. Neste programa, existem diferentes tipos de funcionários, cada um com suas próprias características. Considere as seguintes classes:
-
-// Funcionário:
-// - atributo: Nome
-// - atributo: Idade
-// - atributo: Salário base
-// - método: calcularSalario() - Este método calcula o salário total do funcionário. Para cada tipo de funcionário, o cálculo será diferente.
-
-// Professor (herança de Funcionário):
-// - atributo: Disciplina
-// - atributo: Horas de aula por semana
-// - método: calcularSalario() - Para calcular o salário do professor, multiplicamos suas horas de aula pelo valor da hora/aula.
-
-// Agora, sua tarefa é escrever um código em JavaScript que crie as classes Funcionário e Professor, com suas características e métodos descritos acima. Depois de criar as classes, crie:
-// - Dois objetos do tipo Professor com informações fictícias.
-// - Para cada objeto, chame o método calcularSalario() e mostre o salário calculado no console.
-
-// Certifique-se de explicar cada parte do código utilizando comentários, explicando para que serve cada atributo e método, bem como a lógica por trás do cálculo de salário para o tipo de funcionário Professor.
+// Declara classe funcionarios
 class Funcionario {
   constructor(nome, idade, salarioBase){
+    // Adiciona os valores às propriedades da classe
     this.nome = nome
     this.idade = idade
     this.salarioBase = salarioBase
   }
 
+  // Retorna o valor do salarioBase
   calcularSalario(){
     return this.salarioBase
   }
 }
 
+// Class Professor herda Funcionario
 class Professor extends Funcionario {
+  // Parametros do funcionario + professor
   constructor(nome, idade, salarioBase, disciplina, hpSemana, valorHora){
+    // Super é usado para passar as propriedadas à classe acima (no caso funcionario)
     super(nome, idade, salarioBase)
+    // As outras são especificas do professor:
     this.disciplina = disciplina
     this.hpSemana = hpSemana
     this.valorHora = valorHora
   }
+  // Retorna o valor do salarioBase + Hora por semana * valor da hora
   calcularSalario() {
     return this.salarioBase + (this.hpSemana * this.valorHora)
   }
 }
 
+// Cria os objetos das novas classes com os atributos
 const funcionario1 = new Funcionario('gilberto', 32, 2800)
 const professor1 = new Professor('monica', 41, 4500, 'Biologia', 16, 100)
 
+// Mostra o salario no console
 console.log('Funcionario ' + funcionario1.calcularSalario());
 console.log('Professor ' + professor1.calcularSalario());
 ```
